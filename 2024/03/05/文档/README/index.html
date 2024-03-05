@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhzhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一款 Material Design 风格的主题 An elegant Material-Design theme for Hexo                                             🇨🇳 中文简体  |  🇬🇧 English     文档：   主题配置 |    文章配置      预览：   Fluid&#39;s blog |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluid快速开始">
+<meta property="og:url" content="http://zhzhang.top/2024/03/05/%E6%96%87%E6%A1%A3/README/index.html">
+<meta property="og:site_name" content="zhzhang">
+<meta property="og:description" content="一款 Material Design 风格的主题 An elegant Material-Design theme for Hexo                                             🇨🇳 中文简体  |  🇬🇧 English     文档：   主题配置 |    文章配置      预览：   Fluid&#39;s blog |">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png">
+<meta property="og:image" content="https://img.shields.io/badge/Hexo-%3E%3D%205.0-orange?style=flat">
+<meta property="og:image" content="https://img.shields.io/badge/Node-%3E%3D%2010.13.0-yellowgreen?style=flat">
+<meta property="og:image" content="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat">
+<meta property="og:image" content="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid?style=flat">
+<meta property="og:image" content="https://img.shields.io/npm/dt/hexo-theme-fluid?color=red&label=npm">
+<meta property="og:image" content="https://img.shields.io/github/commit-activity/m/fluid-dev/hexo-theme-fluid.svg?style=flat&color=brightgreen&label=commits">
+<meta property="og:image" content="https://img.shields.io/github/watchers/fluid-dev/hexo-theme-fluid.svg?label=Watchers&style=social">
+<meta property="og:image" content="https://img.shields.io/github/stars/fluid-dev/hexo-theme-fluid.svg?label=Stars&style=social">
+<meta property="og:image" content="https://img.shields.io/github/forks/fluid-dev/hexo-theme-fluid.svg?label=Forks&style=social">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/32983588/243899272-092eeb46-9172-4c10-9e72-53561ff37a00.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg">
+<meta property="og:image" content="https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false">
+<meta property="og:image" content="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/6250754?s=200&v=4">
+<meta property="og:image" content="https://starchart.cc/fluid-dev/hexo-theme-fluid.svg">
+<meta property="article:published_time" content="2024-03-05T10:35:16.249Z">
+<meta property="article:modified_time" content="2024-03-05T10:35:42.118Z">
+<meta property="article:author" content="zhzhang">
+<meta property="article:tag" content="文档">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4">
+  
+  
+  
+  <title>Fluid快速开始 - zhzhang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhzhang.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zhzhang</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Fluid快速开始"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-05 18:35" pubdate>
+          2024年3月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          559 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Fluid快速开始</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer">
+
+<p align="center">
+  <img alt="Fluid Logo" src="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4" srcset="/img/loading.gif" lazyload width="128">
+</p>
+
+<p align="center">一款 Material Design 风格的主题</p>
+<p align="center">An elegant Material-Design theme for Hexo</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png" srcset="/img/loading.gif" lazyload alt="ScreenShot"></p>
+<p align="center">
+  <a title="Hexo Version" target="_blank" href="https://hexo.io/zh-cn/"><img alt="Hexo Version" src="https://img.shields.io/badge/Hexo-%3E%3D%205.0-orange?style=flat" srcset="/img/loading.gif" lazyload></a>
+  <a title="Node Version" target="_blank" href="https://nodejs.org/zh-cn/"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%2010.13.0-yellowgreen?style=flat" srcset="/img/loading.gif" lazyload></a>
+  <a title="License" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat" srcset="/img/loading.gif" lazyload></a>
+  <br>
+  <a title="GitHub Release" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid?style=flat" srcset="/img/loading.gif" lazyload></a>
+  <a title="Npm Downloads" target="_blank" href="https://www.npmjs.com/package/hexo-theme-fluid"><img alt="Npm Downloads" src="https://img.shields.io/npm/dt/hexo-theme-fluid?color=red&label=npm" srcset="/img/loading.gif" lazyload></a>
+  <a title="GitHub Commits" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/commits/master"><img alt="GitHub Commits" src="https://img.shields.io/github/commit-activity/m/fluid-dev/hexo-theme-fluid.svg?style=flat&color=brightgreen&label=commits" srcset="/img/loading.gif" lazyload></a>
+  <br><br>
+  <a title="GitHub Watchers" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/watchers"><img alt="GitHub Watchers" src="https://img.shields.io/github/watchers/fluid-dev/hexo-theme-fluid.svg?label=Watchers&style=social" srcset="/img/loading.gif" lazyload></a>  
+  <a title="GitHub Stars" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fluid-dev/hexo-theme-fluid.svg?label=Stars&style=social" srcset="/img/loading.gif" lazyload></a>  
+  <a title="GitHub Forks" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/fluid-dev/hexo-theme-fluid.svg?label=Forks&style=social" srcset="/img/loading.gif" lazyload></a>  
+</p>
+
+<p align="center">🇨🇳 中文简体  |  <a title="English" href="README_en.md">🇬🇧 English</a></p>
+
+<p align="center">
+  <span>文档：</span>
+  <a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a> | 
+  <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a>
+</p>
+
+<p align="center">
+  <span>预览：</span>
+  <a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/">Fluid's blog</a> | 
+  <a target="_blank" rel="noopener" href="https://zkqiang.cn">zkqiang's blog</a>
+</p>
+
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h4 id="1-搭建-Hexo-博客"><a href="#1-搭建-Hexo-博客" class="headerlink" title="1. 搭建 Hexo 博客"></a>1. 搭建 Hexo 博客</h4><p>如果你还没有 Hexo 博客，请按照 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官方文档</a> 进行安装、建站。</p>
+<h4 id="2-获取主题最新版本"><a href="#2-获取主题最新版本" class="headerlink" title="2. 获取主题最新版本"></a>2. 获取主题最新版本</h4><p><strong>方式一：</strong></p>
+<p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure>
+
+<p>然后在博客目录下创建 <code>_config.fluid.yml</code>，将主题的 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a> 内容复制进去。</p>
+<p><strong>方式二：</strong></p>
+<p>下载 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/releases">最新 release 版本</a> 解压到 themes 目录，并将解压出的文件夹重命名为 <code>fluid</code>。</p>
+<h4 id="3-指定主题"><a href="#3-指定主题" class="headerlink" title="3. 指定主题"></a>3. 指定主题</h4><p>如下修改 Hexo 博客目录中的 <code>_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span>  <span class="hljs-comment"># 指定主题</span><br><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span>  <span class="hljs-comment"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="4-创建「关于页」"><a href="#4-创建「关于页」" class="headerlink" title="4. 创建「关于页」"></a>4. 创建「关于页」</h4><p>首次使用主题的「关于页」需要手动创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+
+<p>创建成功后，编辑博客目录下 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。</p>
+<p>修改后的文件示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">about</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">about</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这里写关于页的正文，支持</span> <span class="hljs-string">Markdown,</span> <span class="hljs-string">HTML</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>更新主题的方式<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/start/#%E6%9B%B4%E6%96%B0%E4%B8%BB%E9%A2%98">参照这里</a>。</p>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><ul>
+<li><input checked disabled type="checkbox"> 无比详实的<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">用户文档</a></li>
+<li><input checked disabled type="checkbox"> 页面组件懒加载</li>
+<li><input checked disabled type="checkbox"> 多种代码高亮方案</li>
+<li><input checked disabled type="checkbox"> 多语言配置</li>
+<li><input checked disabled type="checkbox"> 内置多款评论插件</li>
+<li><input checked disabled type="checkbox"> 内置网页访问统计</li>
+<li><input checked disabled type="checkbox"> 内置文章本地搜索</li>
+<li><input checked disabled type="checkbox"> 支持暗色模式</li>
+<li><input checked disabled type="checkbox"> 支持脚注语法</li>
+<li><input checked disabled type="checkbox"> 支持 LaTeX 数学公式</li>
+<li><input checked disabled type="checkbox"> 支持 mermaid 流程图</li>
+</ul>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><table>
+  <thead>
+    <tr>
+      <th align="center" style="width: 240px;">
+        <a target="_blank" rel="noopener" href="https://flowus.cn/share/eebf2144-8db7-4d68-b31e-bc2c116871de">
+          <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/32983588/243899272-092eeb46-9172-4c10-9e72-53561ff37a00.png" srcset="/img/loading.gif" lazyload height="200px"><br>
+          <sub>首席赞助商 ORENCEAI</sub><br>
+          <sub>全新的 ChatGPT 人工智能对话平台</sub>
+        </a>
+      </th>
+      <th align="center" style="width: 240px;">
+        <a target="_blank" rel="noopener" href="https://www.jetbrains.com/?from=hexo-theme-fluid">
+          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" srcset="/img/loading.gif" lazyload height="200px"><br>
+          <sub>免费开发工具提供方 JetBrains</sub><br>
+          <sub>专注于创建智能开发工具</sub>
+        </a>
+      </th>
+    </tr>
+  </thead>
+</table>
+
+<h2 id="贡献者"><a href="#贡献者" class="headerlink" title="贡献者"></a>贡献者</h2><p><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors"><img src="https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false" srcset="/img/loading.gif" lazyload alt="contributors"></a></p>
+<p>英文文档翻译：<a target="_blank" rel="noopener" href="https://eatrice.top/">@EatRice</a> <a target="_blank" rel="noopener" href="https://ruru.eatrice.top/">@橙子杀手</a> <a target="_blank" rel="noopener" href="https://sinetian.github.io/">@Sinetian</a></p>
+<p>其他贡献：<a target="_blank" rel="noopener" href="https://github.com/zhugaoqi">@zhugaoqi</a> <a target="_blank" rel="noopener" href="https://github.com/julydate">@julydate</a> <a target="_blank" rel="noopener" href="https://xiyu.pro/">@xiyuvi</a></p>
+<p>如你也想贡献代码，可参照<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/contribute/">贡献指南</a></p>
+<h2 id="支持我们"><a href="#支持我们" class="headerlink" title="支持我们"></a>支持我们</h2><p>如果你觉得这个项目有帮助，并愿意支持它的发展，可以通过以下方式支持我们的开源创作：</p>
+<table>
+  <thead>
+    <tr>
+      <th align="center" style="width: 240px;">
+        <div>
+          <img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" srcset="/img/loading.gif" lazyload height="200px" alt="微信赞赏码"><br>
+          <sub>微信赞赏码</sub>
+        </div>
+      </th>
+      <th align="center" style="width: 240px;">
+        <div>
+          <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x0021395954710be29c0BFDCB3f98f4D2fa5A1448">
+            <img src="https://avatars.githubusercontent.com/u/6250754?s=200&v=4" srcset="/img/loading.gif" lazyload height="200px" alt="ERC20 Token">
+          </a>
+          <br>
+          <sub>ERC20 Token: 0x0021395954710<br>be29c0BFDCB3f98f4D2fa5A1448</sub>
+        </div>
+      </th>
+    </tr>
+  </thead>
+</table>
+
+<p>同时我们正在<strong>寻求商业赞助</strong>，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。</p>
+<h2 id="Star-趋势"><a href="#Star-趋势" class="headerlink" title="Star 趋势"></a>Star 趋势</h2><p><a target="_blank" rel="noopener" href="https://starchart.cc/fluid-dev/hexo-theme-fluid"><img src="https://starchart.cc/fluid-dev/hexo-theme-fluid.svg" srcset="/img/loading.gif" lazyload alt="Stargazers over time"></a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E7%A8%8B/" class="category-chain-item">工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%87%E6%A1%A3/" class="print-no-link">#文档</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Fluid快速开始</div>
+      <div>http://zhzhang.top/2024/03/05/文档/README/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhzhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/05/%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5/" title="技术链接">
+                        <span class="hidden-mobile">技术链接</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

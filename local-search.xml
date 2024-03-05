@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Fluid快速开始</title>
+    <link href="/2024/03/05/%E6%96%87%E6%A1%A3/README/"/>
+    <url>/2024/03/05/%E6%96%87%E6%A1%A3/README/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><p align="center">  <img alt="Fluid Logo" src="https://avatars2.githubusercontent.com/t/3419353?s=280&v=4" width="128"></p><p align="center">一款 Material Design 风格的主题</p><p align="center">An elegant Material-Design theme for Hexo</p><p><img src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/screenshots/index.png" alt="ScreenShot"></p><p align="center">  <a title="Hexo Version" target="_blank" href="https://hexo.io/zh-cn/"><img alt="Hexo Version" src="https://img.shields.io/badge/Hexo-%3E%3D%205.0-orange?style=flat"></a>  <a title="Node Version" target="_blank" href="https://nodejs.org/zh-cn/"><img alt="Node Version" src="https://img.shields.io/badge/Node-%3E%3D%2010.13.0-yellowgreen?style=flat"></a>  <a title="License" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/fluid-dev/hexo-theme-fluid.svg?style=flat"></a>  <br>  <a title="GitHub Release" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/fluid-dev/hexo-theme-fluid?style=flat"></a>  <a title="Npm Downloads" target="_blank" href="https://www.npmjs.com/package/hexo-theme-fluid"><img alt="Npm Downloads" src="https://img.shields.io/npm/dt/hexo-theme-fluid?color=red&label=npm"></a>  <a title="GitHub Commits" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/commits/master"><img alt="GitHub Commits" src="https://img.shields.io/github/commit-activity/m/fluid-dev/hexo-theme-fluid.svg?style=flat&color=brightgreen&label=commits"></a>  <br><br>  <a title="GitHub Watchers" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/watchers"><img alt="GitHub Watchers" src="https://img.shields.io/github/watchers/fluid-dev/hexo-theme-fluid.svg?label=Watchers&style=social"></a>    <a title="GitHub Stars" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fluid-dev/hexo-theme-fluid.svg?label=Stars&style=social"></a>    <a title="GitHub Forks" target="_blank" href="https://github.com/fluid-dev/hexo-theme-fluid/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/fluid-dev/hexo-theme-fluid.svg?label=Forks&style=social"></a>  </p><p align="center">🇨🇳 中文简体  |  <a title="English" href="README_en.md">🇬🇧 English</a></p><p align="center">  <span>文档：</span>  <a href="https://hexo.fluid-dev.com/docs/guide/">主题配置</a> |   <a href="https://hexo.io/zh-cn/docs/front-matter">文章配置</a></p><p align="center">  <span>预览：</span>  <a href="https://hexo.fluid-dev.com/">Fluid's blog</a> |   <a href="https://zkqiang.cn">zkqiang's blog</a></p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h4 id="1-搭建-Hexo-博客"><a href="#1-搭建-Hexo-博客" class="headerlink" title="1. 搭建 Hexo 博客"></a>1. 搭建 Hexo 博客</h4><p>如果你还没有 Hexo 博客，请按照 <a href="https://hexo.io/zh-cn/docs/">Hexo 官方文档</a> 进行安装、建站。</p><h4 id="2-获取主题最新版本"><a href="#2-获取主题最新版本" class="headerlink" title="2. 获取主题最新版本"></a>2. 获取主题最新版本</h4><p><strong>方式一：</strong></p><p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure><p>然后在博客目录下创建 <code>_config.fluid.yml</code>，将主题的 <a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a> 内容复制进去。</p><p><strong>方式二：</strong></p><p>下载 <a href="https://github.com/fluid-dev/hexo-theme-fluid/releases">最新 release 版本</a> 解压到 themes 目录，并将解压出的文件夹重命名为 <code>fluid</code>。</p><h4 id="3-指定主题"><a href="#3-指定主题" class="headerlink" title="3. 指定主题"></a>3. 指定主题</h4><p>如下修改 Hexo 博客目录中的 <code>_config.yml</code>：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span>  <span class="hljs-comment"># 指定主题</span><br><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span>  <span class="hljs-comment"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure><h4 id="4-创建「关于页」"><a href="#4-创建「关于页」" class="headerlink" title="4. 创建「关于页」"></a>4. 创建「关于页」</h4><p>首次使用主题的「关于页」需要手动创建：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure><p>创建成功后，编辑博客目录下 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。</p><p>修改后的文件示例如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">about</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">about</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这里写关于页的正文，支持</span> <span class="hljs-string">Markdown,</span> <span class="hljs-string">HTML</span><br></code></pre></td></tr></table></figure><h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>更新主题的方式<a href="https://hexo.fluid-dev.com/docs/start/#%E6%9B%B4%E6%96%B0%E4%B8%BB%E9%A2%98">参照这里</a>。</p><h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><ul><li><input checked disabled type="checkbox"> 无比详实的<a href="https://hexo.fluid-dev.com/docs/">用户文档</a></li><li><input checked disabled type="checkbox"> 页面组件懒加载</li><li><input checked disabled type="checkbox"> 多种代码高亮方案</li><li><input checked disabled type="checkbox"> 多语言配置</li><li><input checked disabled type="checkbox"> 内置多款评论插件</li><li><input checked disabled type="checkbox"> 内置网页访问统计</li><li><input checked disabled type="checkbox"> 内置文章本地搜索</li><li><input checked disabled type="checkbox"> 支持暗色模式</li><li><input checked disabled type="checkbox"> 支持脚注语法</li><li><input checked disabled type="checkbox"> 支持 LaTeX 数学公式</li><li><input checked disabled type="checkbox"> 支持 mermaid 流程图</li></ul><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><table>  <thead>    <tr>      <th align="center" style="width: 240px;">        <a href="https://flowus.cn/share/eebf2144-8db7-4d68-b31e-bc2c116871de">          <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/32983588/243899272-092eeb46-9172-4c10-9e72-53561ff37a00.png" height="200px"><br>          <sub>首席赞助商 ORENCEAI</sub><br>          <sub>全新的 ChatGPT 人工智能对话平台</sub>        </a>      </th>      <th align="center" style="width: 240px;">        <a href="https://www.jetbrains.com/?from=hexo-theme-fluid">          <img src="https://raw.githubusercontent.com/fluid-dev/static/690616966f34a58d66aa15ac7b550dd7bbc03967/hexo-theme-fluid/jetbrains.svg" height="200px"><br>          <sub>免费开发工具提供方 JetBrains</sub><br>          <sub>专注于创建智能开发工具</sub>        </a>      </th>    </tr>  </thead></table><h2 id="贡献者"><a href="#贡献者" class="headerlink" title="贡献者"></a>贡献者</h2><p><a href="https://github.com/fluid-dev/hexo-theme-fluid/graphs/contributors"><img src="https://opencollective.com/hexo-theme-fluid/contributors.svg?width=890&button=false" alt="contributors"></a></p><p>英文文档翻译：<a href="https://eatrice.top/">@EatRice</a> <a href="https://ruru.eatrice.top/">@橙子杀手</a> <a href="https://sinetian.github.io/">@Sinetian</a></p><p>其他贡献：<a href="https://github.com/zhugaoqi">@zhugaoqi</a> <a href="https://github.com/julydate">@julydate</a> <a href="https://xiyu.pro/">@xiyuvi</a></p><p>如你也想贡献代码，可参照<a href="https://hexo.fluid-dev.com/docs/contribute/">贡献指南</a></p><h2 id="支持我们"><a href="#支持我们" class="headerlink" title="支持我们"></a>支持我们</h2><p>如果你觉得这个项目有帮助，并愿意支持它的发展，可以通过以下方式支持我们的开源创作：</p><table>  <thead>    <tr>      <th align="center" style="width: 240px;">        <div>          <img src="https://github.com/fluid-dev/static/blob/master/hexo-theme-fluid/sponsor.png?s=200&v=4" height="200px" alt="微信赞赏码"><br>          <sub>微信赞赏码</sub>        </div>      </th>      <th align="center" style="width: 240px;">        <div>          <a href="https://etherscan.io/address/0x0021395954710be29c0BFDCB3f98f4D2fa5A1448">            <img src="https://avatars.githubusercontent.com/u/6250754?s=200&v=4" height="200px" alt="ERC20 Token">          </a>          <br>          <sub>ERC20 Token: 0x0021395954710<br>be29c0BFDCB3f98f4D2fa5A1448</sub>        </div>      </th>    </tr>  </thead></table><p>同时我们正在<strong>寻求商业赞助</strong>，如果贵司想在本页显著位置展示广告位（每月 6K+ Views 定向流量曝光），或者有其他赞助形式，可将联系方式发送邮件至 zkqiang#126.com (#替换为@)。</p><h2 id="Star-趋势"><a href="#Star-趋势" class="headerlink" title="Star 趋势"></a>Star 趋势</h2><p><a href="https://starchart.cc/fluid-dev/hexo-theme-fluid"><img src="https://starchart.cc/fluid-dev/hexo-theme-fluid.svg" alt="Stargazers over time"></a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文档</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>技术链接</title>
+    <link href="/2024/03/05/%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5/"/>
+    <url>/2024/03/05/%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="如何解决hexo博客图床不显示"><a href="#如何解决hexo博客图床不显示" class="headerlink" title="如何解决hexo博客图床不显示"></a>如何解决hexo博客图床不显示</h1><p><a href="https://www.cnblogs.com/yangstar/articles/16688692.html">https://www.cnblogs.com/yangstar/articles/16688692.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文档</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>利用深度强化学习避免融合等离子体撕裂不稳定性</title>
+    <link href="/2024/03/05/%E4%BA%A4%E5%8F%89/8%E9%81%BF%E5%85%8D%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7,Nautre24/"/>
+    <url>/2024/03/05/%E4%BA%A4%E5%8F%89/8%E9%81%BF%E5%85%8D%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7,Nautre24/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="Avoiding-fusion-plasma-tearing-instability-with-deep-reinforcement-learning"><a href="#Avoiding-fusion-plasma-tearing-instability-with-deep-reinforcement-learning" class="headerlink" title="Avoiding fusion plasma tearing instability with deep reinforcement learning"></a>Avoiding fusion plasma tearing instability with deep reinforcement learning</h1><p>利用深度强化学习避免融合等离子体撕裂不稳定性<br><a href="https://mp.weixin.qq.com/s/MpIVfNJVpZzBncgqll6Y3Q">https://mp.weixin.qq.com/s/MpIVfNJVpZzBncgqll6Y3Q</a><br><a href="https://www.nature.com/articles/s41586-024-07024-9">https://www.nature.com/articles/s41586-024-07024-9</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>有必要根据观察到的等离子体状态主动控制托卡马克，在操纵高压等离子体的同时避免撕裂不稳定，这是导致中断的主要原因。这提出了一个基于强化学习的人工智能最近表现出显着性能的避障问题</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709011867860-14b1f6e8-cbcc-4fdd-90c2-1bffb7e3e960.png#averageHue=%23e7e7e7&clientId=u7685dfc0-f033-4&from=paste&height=724&id=u195af0e1&originHeight=1086&originWidth=890&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=142787&status=done&style=none&taskId=ud0e2b34c-a43c-4d86-b58d-f332a9c4355&title=&width=593.3333333333334" alt="image.png"><br>提取特征，模态信息融合<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709012031092-a640efe2-fcf5-483e-9aeb-16709b0a72bc.png#averageHue=%23e7e7e7&clientId=u0dd9fd2f-e670-4&from=paste&height=471&id=uf97b6fb1&originHeight=707&originWidth=651&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=97083&status=done&style=none&taskId=u4ad23a0f-9cfc-4b7c-baa7-43c85365fc7&title=&width=434" alt="image.png"><br>AC算法进行预测，某个状态的撕裂可能性</p><h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>交叉</tag>
+      
+      <tag>Nature</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MAT</title>
+    <link href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/7MAT,NeurIPS22/"/>
+    <url>/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/7MAT,NeurIPS22/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="Multi-agent-reinforcement-learning-is-a-sequence-modeling-problem"><a href="#Multi-agent-reinforcement-learning-is-a-sequence-modeling-problem" class="headerlink" title="Multi-agent reinforcement learning is a sequence modeling problem"></a>Multi-agent reinforcement learning is a sequence modeling problem</h1><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>MAT的核心是一个编码器-解码器架构，该架构利用多智能体优势分解定理将联合策略搜索问题转换为顺序决策过程;这使得多智能体问题的时间复杂度仅为线性</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="多智能体优势分解理论"><a href="#多智能体优势分解理论" class="headerlink" title="多智能体优势分解理论"></a>多智能体优势分解理论</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709013797645-8b43fdd5-970f-4401-868b-da858f47c012.png#averageHue=%23fbf9f8&clientId=u2e1b7fe2-aff5-4&from=paste&id=ud4231016&originHeight=160&originWidth=1048&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=45056&status=done&style=none&taskId=u9aeeaf89-82a5-4748-b506-b7029ca2ccf&title=" alt="image.png"><br>目标的联合性导致了与信用分配问题相关的困难，在获得共享奖励后，个体智能体无法推断自己对团队成功或失败的贡献<br>定义多<strong>智能体观测值函数</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014024176-fbd2658e-c540-44dc-95f5-063c97fbe8aa.png#averageHue=%23f9f8f6&clientId=uf84c472e-ae7a-4&from=paste&height=69&id=u2a147843&originHeight=48&originWidth=402&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=10974&status=done&style=none&taskId=ud43c93f2-4f73-4c91-b58b-5f4830c49a6&title=&width=580" alt="image.png"><br>衡量所选智能体子集对联合回报的贡献<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014167414-4d2603f6-ddfc-4d0f-877e-982b1b3b9e8e.png#averageHue=%23faf8f6&clientId=u9597bc06-3114-4&from=paste&height=66&id=uecf2a4c1&originHeight=48&originWidth=560&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=8523&status=done&style=none&taskId=u58a340ef-329f-4813-881a-3f1610243f1&title=&width=764.3333435058594" alt="image.png"></p><h2 id="多智能体优势分解定理"><a href="#多智能体优势分解定理" class="headerlink" title="多智能体优势分解定理"></a>多智能体优势分解定理</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014340231-73d07de4-2a2a-4d41-b79d-743ee9d099fe.png#averageHue=%23f4f0eb&clientId=u9597bc06-3114-4&from=paste&height=377&id=u97b242b3&originHeight=411&originWidth=811&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=163227&status=done&style=none&taskId=uf2e6a335-edef-4cd2-b154-d4f233be42b&title=&width=744.6666870117188" alt="image.png"><br>假设智能体1选择一个正向的行动，智能体2-n都知道智能体1选择了一个正向行动<br>所有智能体分别搜索一个正向的行动进行选择，构成Transformer序列模型<br><strong>后续智能体决策将依赖于前序智能体决策</strong></p><h2 id="用Transformer来解决强化学习问题"><a href="#用Transformer来解决强化学习问题" class="headerlink" title="用Transformer来解决强化学习问题"></a>用Transformer来解决强化学习问题</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014528775-8bf8ab3c-74f5-436d-a913-981dd00a1a2c.png#averageHue=%23f2efe9&clientId=u9597bc06-3114-4&from=paste&height=388&id=ud2dd568a&originHeight=582&originWidth=1138&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=390490&status=done&style=none&taskId=u3828f17a-1a23-496e-868e-a13db96a01f&title=&width=758.6666666666666" alt="image.png"><br>编码器<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014654180-d20e6817-7c9d-4962-b827-591d41608e80.png#averageHue=%23faf9f7&clientId=u9597bc06-3114-4&from=paste&height=77&id=ufec8b6ea&originHeight=116&originWidth=769&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=18569&status=done&style=none&taskId=uc206188d-fad3-4bce-83b2-949bf993669&title=&width=512.6666666666666" alt="image.png"><br>解码器<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014665741-622a8d25-7ca6-406c-adcb-0f420997e7aa.png#averageHue=%23fbf9f8&clientId=u9597bc06-3114-4&from=paste&height=151&id=u63ba0caf&originHeight=226&originWidth=803&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=36442&status=done&style=none&taskId=uf67e428a-f04b-4b76-a5d1-4ba65df5c60&title=&width=535.3333333333334" alt="image.png"></p><h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1><p>在未来，我们计划将多智能体学习任务引入大型多模态SM中，追求更普遍的智能模型，正如GATO最近的成功已经证明的那样</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>经典算法</tag>
+      
+      <tag>NeurIPS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>QMIX</title>
+    <link href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/6QMIX,ICML18/"/>
+    <url>/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/6QMIX,ICML18/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="Qmix-Monotonic-value-function-factorisation-for-deep-multi-agent-reinforcement-learning"><a href="#Qmix-Monotonic-value-function-factorisation-for-deep-multi-agent-reinforcement-learning" class="headerlink" title="Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learning"></a>Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learning</h1><p>Qmix： 用于深度多代理强化学习的单调值函数因式分解<br><a href="https://zhuanlan.zhihu.com/p/353524210">https://zhuanlan.zhihu.com/p/353524210</a><br><a href="https://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf">https://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>多智能体强化学习训练中面临的最大问题是：训练阶段和执行阶段获取的信息可能存在不对等问题。即，在训练的时候我们可以获得<strong>大量的全局信息</strong>。<br>但在最终应用模型的时候，我们是无法获取到训练时那么多的全局信息的，因此，人们提出两个训练网络：一个为<strong>中心式训练网络</strong>，该网络只在训练阶段存在，获取全局信息作为输入并指导智能体行为控制网络进行更新；另一个为<strong>行为控制网络</strong>，该网络也是最终被应用的网络，在训练和应用阶段都保持着相同的数据输入。</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709011958605-9f6be777-4d3d-4b03-a431-213b32be32b6.png#averageHue=%23faf9f9&clientId=u37125000-3bca-4&from=paste&height=297&id=uda8c91dd&originHeight=446&originWidth=1049&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217253&status=done&style=none&taskId=ucfe49fe2-9133-4813-9456-cde6c504f57&title=&width=699.3333333333334" alt="image.png"><br> Mixing Network（类比 Critic 网络）和 Agent RNN Network（类比 Actor 网络）</p><h2 id="Agent-RNN-Network"><a href="#Agent-RNN-Network" class="headerlink" title="Agent RNN Network"></a>Agent RNN Network</h2><p>QMIX 中每一个 Agent 都由 RNN 网络控制，训练时可以为每一个 Agent 个体都训练一个独立的 RNN 网络，同样也可以所有 Agent 复用同一个 RNN 网络<br><strong>MLP+GRU+MLP</strong></p><h2 id="Mixing-Network"><a href="#Mixing-Network" class="headerlink" title="Mixing Network"></a>Mixing Network</h2><p>网络同时接受Agent RNN Network的Q值和全局状态<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016512747-ea8e8282-b8b4-47d5-9a0c-ef23156981f7.png#averageHue=%23f7f6f5&clientId=u4bf42cf8-5ba7-4&from=paste&id=ufa3733c7&originHeight=315&originWidth=804&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=32258&status=done&style=none&taskId=u225a8851-1523-4ecf-bd61-4fd1345fc72&title=" alt="image.png"><br>训练过程中，使用全局信息生成参数，然后得到总体函数Qtot<br>实际使用过程中，只使用推理网络（蓝色部分）<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016666104-f0894631-7155-4d7b-a344-5346ac1a976f.png#averageHue=%23f9f0ef&clientId=u4bf42cf8-5ba7-4&from=paste&height=276&id=ucb90c6d8&originHeight=414&originWidth=296&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=73839&status=done&style=none&taskId=u9d2a8d25-3196-4bfb-b15c-d20c2cb255c&title=&width=197.33333333333334" alt="image.png"></p><h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1><p>在不久的将来，我们的目标是进行更多的实验，以比较具有更多数量和更大多样性的单元的任务方法。从长远来看，我们的目标是为具有许多学习代理的设置提供更协调的探索方案来补充QMIX。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>经典算法</tag>
+      
+      <tag>ICML</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VDN</title>
+    <link href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/5VDN,AAMAS18/"/>
+    <url>/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/5VDN,AAMAS18/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="Value-decomposition-networks-for-cooperative-multi-agent-learning-based-on-team-reward"><a href="#Value-decomposition-networks-for-cooperative-multi-agent-learning-based-on-team-reward" class="headerlink" title="Value-decomposition networks for cooperative multi-agent learning based on team reward"></a>Value-decomposition networks for cooperative multi-agent learning based on team reward</h1><p>基于团队奖励的多机器人合作学习价值分解网络<br><a href="https://arxiv.org/pdf/1706.05296.pdf">https://arxiv.org/pdf/1706.05296.pdf</a><br><a href="https://zhuanlan.zhihu.com/p/362191316">https://zhuanlan.zhihu.com/p/362191316</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>由于每个智能体都是局部观测，那么对其中一个智能体来说，其获得的团队奖励很有可能是其队友的行为导致的。也就是说该奖励值对该智能体来说，是<strong>虚假奖励</strong>。因此，每个智能体独立使用强化学习算法学习 往往效果很差。<br>这种虚假奖励还会伴随一种现象，作者称作<strong>惰性智能体</strong>。当团队中的部分智能体学习到了比较好的策略并且能够完成任务时，其它智能体不需要做什么也能获得不错的团队奖励</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709014940404-fad5c85e-30c7-496e-bab2-329ecdab5741.png#averageHue=%23f0f0f0&clientId=u549eeb9d-cb66-4&from=paste&height=445&id=u6b271d40&originHeight=328&originWidth=246&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=15484&status=done&style=none&taskId=u593b7e94-dc78-4514-ac75-f10df4bf304&title=&width=334" alt="image.png"><br>对整体的Q函数值进行分解，在智能体综合优化最大时，得到每个智能体的具体情况<br>每个<strong>智能体局部</strong>通过贪心算法来选择动作，综合起来是整个智能体的得分<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709015779181-1a60b4b0-98a4-4340-87c3-5662c7562c31.png#averageHue=%23faf9f7&clientId=u047a06e4-10ec-4&from=paste&height=48&id=u3efb2386&originHeight=51&originWidth=533&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=16657&status=done&style=none&taskId=u74805035-e8f6-4f1c-b5a5-87143be6cdb&title=&width=497.3333435058594" alt="image.png"></p><h2 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h2><p>在未来的工作中，我们将研究随着团队规模的增长价值分解的尺度，这使得拥有团队奖励的个体学习者更加困惑(他们大多看到来自其他代理行为的奖励)，而集中式学习者甚至更加不切实际。我们还将研究基于非线性值聚合的分解。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>经典算法</tag>
+      
+      <tag>AAMAS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MAPPO</title>
+    <link href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/4MAPPO,NeurIPS22/"/>
+    <url>/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/4MAPPO,NeurIPS22/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="The-surprising-effectiveness-of-PPO-in-cooperative-multi-agent-games"><a href="#The-surprising-effectiveness-of-PPO-in-cooperative-multi-agent-games" class="headerlink" title="The surprising effectiveness of PPO in cooperative multi-agent games"></a>The surprising effectiveness of PPO in cooperative multi-agent games</h1><p>PPO 在多代理合作博弈中的惊人效力<br><a href="https://arxiv.org/pdf/2103.01955.pdf">https://arxiv.org/pdf/2103.01955.pdf</a><br><a href="https://zhuanlan.zhihu.com/p/386559032">https://zhuanlan.zhihu.com/p/386559032</a><br><a href="https://github.com/marlbenchmark/on-policy">https://github.com/marlbenchmark/on-policy</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>近端策略优化算法的使用率较低，验证了PPO算法的有效，整体感觉是工程上的Trick，就是把PPO算法移植到多智能体上了</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709012631657-a78aeba1-1c1b-4729-a9dd-58558334ee89.png#averageHue=%23f9f8f6&clientId=u174c384c-a19d-4&from=paste&height=567&id=u38aa7e7b&originHeight=851&originWidth=860&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=186307&status=done&style=none&taskId=u99b3ddb7-6d87-43ff-9ad7-62e663300fa&title=&width=573.3333333333334" alt="image.png"><br>Actor优化目标<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709012488891-f7bf2add-06a6-4729-9218-56b2eea347e0.png#averageHue=%23fefefe&clientId=u174c384c-a19d-4&from=paste&height=169&id=ud0036227&originHeight=253&originWidth=1145&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=57738&status=done&style=none&taskId=u6d27f52a-2d18-4ee3-9c54-40422058373&title=&width=763.3333333333334" alt="image.png"><br>Critic优化目标<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709012504862-9aa6c50d-cf15-4392-88d2-1c2604effbe2.png#averageHue=%23fefefe&clientId=u174c384c-a19d-4&from=paste&height=153&id=u5d342d6c&originHeight=229&originWidth=984&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=45671&status=done&style=none&taskId=u41d80b20-6717-4cdb-bfab-a471e54e7a9&title=&width=656" alt="image.png"><br>所有的Actor，Critic都用<strong>全局的信息</strong>进行优化</p><h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1><p>首先，我们的基准环境都使用离散的动作空间，都是合作的，并且在绝大多数情况下，包含同质代理。在未来的工作中，我们的目标是在更广泛的领域上测试PPO，例如具有连续动作空间和异构代理的竞争性游戏和MARL问题。此外，我们的工作主要是经验性的，并没有直接分析PPO的理论基础。我们相信对我们的建议的实证分析可以作为进一步分析PPO在MARL中的特性的起点。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>经典算法</tag>
+      
+      <tag>NeurIPS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MADDPG</title>
+    <link href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/3MADDPG,NeurIPS17/"/>
+    <url>/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/3MADDPG,NeurIPS17/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="Multi-Agent-Actor-Critic-for-Mixed-Cooperative-Competitive-Environments"><a href="#Multi-Agent-Actor-Critic-for-Mixed-Cooperative-Competitive-Environments" class="headerlink" title="Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments"></a>Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments</h1><p>混合合作竞争环境中的多代理行动者评判器<br><a href="https://arxiv.org/pdf/1706.02275.pdf">https://arxiv.org/pdf/1706.02275.pdf</a><br><a href="https://zhuanlan.zhihu.com/p/53811876">https://zhuanlan.zhihu.com/p/53811876</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>q学习（基于值学习）受到环境固有的非平稳性的挑战，而策略梯度则受到随着智能体数量增加而增加的方差的影响，主要对AC算法做了改进，关注多智能体问题<br>MADDPG算法具有以下三点特征： 1. 通过学习得到的最优策略，在应用时只利用局部信息就能给出最优动作。 2. 不需要知道环境的动力学模型以及特殊的通信需求。 3. 该算法不仅能用于合作环境，也能用于竞争环境</p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709009798947-5d401739-f17d-47c0-aa14-708f8c18d9d4.png#averageHue=%23faefed&clientId=uceaab4db-45f6-4&from=paste&height=450&id=udb4dc883&originHeight=258&originWidth=357&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=17299&status=done&style=none&taskId=ueb80efb2-2438-4f25-899b-13d6ca5f9a0&title=&width=622.6666870117188" alt="image.png"><br>在以下约束下运行:(1)学习到的策略在执行时只能使用局部信息(即它们自己的观察结果)，(2)我们不假设环境动态的可微分模型，这与中不同，(3)我们不假设代理之间的通信方法有任何特定的结构(即，我们不假设通信通道可微分)。</p><h2 id="集中训练分散执行"><a href="#集中训练分散执行" class="headerlink" title="集中训练分散执行"></a>集中训练分散执行</h2><p><strong>Critic扩展为可以利用其他智能体的策略进行学习</strong><br>集中式训练，分布式执行：训练时采用集中式学习训练critic与actor，使用时actor只用知道局部信息就能运行。critic需要其他智能体的策略信息，本文给了一种估计其他智能体策略的方法，能够只用知道其他智能体的观测与动作。</p><h2 id="对其他智能体策略进行估计"><a href="#对其他智能体策略进行估计" class="headerlink" title="对其他智能体策略进行估计"></a>对其他智能体策略进行估计</h2><p><strong>每个智能体额外优化n-1个逼近函数</strong><br>通过对其他智能体的策略进行估计来实现。每个智能体维护n-1个策略逼近函数，降低了通信的消耗<img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709010712353-9e8e4280-2e50-4dd4-bcc5-4e1725a8b55c.png#averageHue=%23f0eeec&clientId=u0fa03937-0d35-4&from=paste&height=523&id=u78d6d771&originHeight=784&originWidth=1640&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=324644&status=done&style=none&taskId=u67f8595b-aa92-406c-a96b-fab6d0fb124&title=&width=1093.3333333333333" alt="image.png"></p><h2 id="具有策略集合的代理"><a href="#具有策略集合的代理" class="headerlink" title="具有策略集合的代理"></a>具有策略集合的代理</h2><p><strong>每个智能体对整体的贡献进行优化，使用一个整体的优化合集</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709010898813-270cf31a-773c-43ad-80dd-1283aa5c1bf3.png#averageHue=%23faf9f8&clientId=u0fa03937-0d35-4&from=paste&height=98&id=u116798af&originHeight=147&originWidth=1415&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=35140&status=done&style=none&taskId=u6658c6a7-9e45-4e9b-a6e3-e762e8ef55e&title=&width=943.3333333333334" alt="image.png"></p><h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1><p>Q的输入空间随着代理n的数量线性增长(取决于x中包含的信息)。这可以在实践中得到补救，例如，使用一个模块化的Q函数，它只考虑给定代理的某个邻域内的代理。我们把这项调查留给未来的工作。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>经典算法</tag>
+      
+      <tag>NeurIPS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>开放环境下的协作多智能体强化学习进展综述</title>
+    <link href="/2024/03/04/%E7%BB%BC%E8%BF%B0/2%E5%BC%80%E6%94%BE%E7%8E%AF%E5%A2%83%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0,%E4%BF%A1%E6%81%AF%E7%A7%91%E5%AD%A623/"/>
+    <url>/2024/03/04/%E7%BB%BC%E8%BF%B0/2%E5%BC%80%E6%94%BE%E7%8E%AF%E5%A2%83%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0,%E4%BF%A1%E6%81%AF%E7%A7%91%E5%AD%A623/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="开放环境下的协作多智能体强化学习进展综述"><a href="#开放环境下的协作多智能体强化学习进展综述" class="headerlink" title="开放环境下的协作多智能体强化学习进展综述"></a>开放环境下的协作多智能体强化学习进展综述</h1><p>论文地址：<a href="https://arxiv.org/pdf/2312.01058.pdf">https://arxiv.org/pdf/2312.01058.pdf</a>，<a href="https://www.lamda.nju.edu.cn/lilh/file/openmarl.pdf">https://www.lamda.nju.edu.cn/lilh/file/openmarl.pdf</a></p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>1.协作多智能体强化学习专注于训练<strong>智能体团队</strong>以协同完成单智能体难以应对的任务目标<br>2. 以往的研究工作主要 在<strong>简单、静态和封闭</strong>的环境设定中展开。随着人工智能技术落地的驱使，目前在多智能体协作领域 也有部分研究开始对<strong>开放环境</strong>下的多智能体协作展开研究，这些工作从多个方面对智能体所处环境 中要素可能发生改变这一情况进行探索与研究，并取得一定进展。<br>3. 挑战：真实多智能体系统所处环境往往是<strong>部分可观测</strong>的，单个智能体无法从其局部观测中获得环境的全局信息 ； 由于其他智能体同时进行学习，策略相应地会发生变化，从单个智能体角度来看，其处于一个<strong>非稳态</strong>的环境中，收敛性无法得到保证；协作型多智能体系统往往只能得到共享奖赏，<strong>如何将其分配</strong>从而为每个智能体提供准确的反馈。<br>4 .协作型多智能体强化学习都展 现出比传统方法更优秀的性能。研究者设计出许多方法以促进智能体之间的协作，包括基于策略梯 度的方法，如MADDPG[<a href="https://www.yuque.com/xilou-f7acw/paper2024/ppm36nxcafk1sqry">https://www.yuque.com/xilou-f7acw/paper2024/ppm36nxcafk1sqry</a>]和MAPPO<a href="https://www.yuque.com/xilou-f7acw/paper2024/wn5oi47s59nhym6t">https://www.yuque.com/xilou-f7acw/paper2024/wn5oi47s59nhym6t</a>]；基于值函数的方法，如VDN[<a href="https://www.yuque.com/xilou-f7acw/paper2024/eb398k8avyykb064">https://www.yuque.com/xilou-f7acw/paper2024/eb398k8avyykb064</a>]和QMIX[<a href="https://www.yuque.com/xilou-f7acw/paper2024/rgzsd619w53g4yn7">https://www.yuque.com/xilou-f7acw/paper2024/rgzsd619w53g4yn7</a>]；或包 括借助Transformer 的强大表达能力提升协作能力的 MAT [<a href="https://www.yuque.com/xilou-f7acw/paper2024/uz00n69gcisfokin">https://www.yuque.com/xilou-f7acw/paper2024/uz00n69gcisfokin</a>] 在内的其他方法。<br>5. 开放环境下的任务，主要工作包括可信强化学习、环境生成与策略学习、持续强化学习、强化学习泛化能力 、元强化学习与模拟器到真实环境的策略迁移 等。  </p><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>强化学习</strong>旨在指导智能体依据当前的状态学习执行恰当的动作，即学习到一个观测状态到动作的映射，通过决策以最大化环境反馈的累积数值奖赏（reward）。环境会依据当前状态和智能体 执行的动作反馈其相应的奖赏信息。智能体无法得知要执行的最优动作，而必须通过尝试从而发现 那些能产生最大累积奖赏的动作。在标准RL场景中，智能体通过观测状态和执行动作与环境交互。 在交互的每个时间步，智能体都会接收对环境当前状态的观测，然后依据该观测选择动作作为输出。 上述动作的执行会改变环境的状态，并发送给智能体环境反馈的奖赏信号。智能体的目的是执行能 最大化累积数值奖赏的动作序列。</p><h2 id="四个部分"><a href="#四个部分" class="headerlink" title="四个部分"></a>四个部分</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708486411342-7ad6d107-6df3-4fba-a8bb-7c998dbc8b50.png#averageHue=%23f6f6f6&clientId=u34a8521f-39fb-4&from=paste&height=360&id=uaf80ab26&originHeight=540&originWidth=853&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=62320&status=done&style=none&taskId=u8274000d-a1eb-4a77-a4a4-950a70ec528&title=&width=568.6666666666666" alt="image.png"><br>智能体（Agent）、状态（State）、动作（Action）和奖赏 （Reward）  </p><h2 id="马尔可夫决策过程"><a href="#马尔可夫决策过程" class="headerlink" title="马尔可夫决策过程"></a>马尔可夫决策过程</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708486772589-ac4629ae-102c-469b-a381-025fa6675116.png#averageHue=%23f3f3f3&clientId=u0c974a61-2d5f-4&from=paste&height=215&id=uc9784dbe&originHeight=322&originWidth=1254&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=81893&status=done&style=none&taskId=uadb0ff74-1c42-4d13-812d-1e0356d6a69&title=&width=836" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708487168375-aded07dc-7e8a-4ba3-846f-4a0e190975d1.png#averageHue=%23f0f0f0&clientId=u0c974a61-2d5f-4&from=paste&height=32&id=uc2e16b2f&originHeight=48&originWidth=284&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=3259&status=done&style=none&taskId=u24440a09-0c9f-48d6-870d-a6be19bb05a&title=&width=189.33333333333334" alt="image.png"></p><ul><li>S × A × S 表示函数的输入，即当前状态、当前动作和下一个状态的组合。</li><li>[0, 1] 是输出值的范围，表示概率值，因为概率总是介于0（不可能发生）和1（必然发生）之间。</li></ul><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708486798409-8d813f14-cd1f-4e8e-877c-3b1f54bd25a9.png#averageHue=%23f5f5f5&clientId=u0c974a61-2d5f-4&from=paste&height=41&id=ub7c327d8&originHeight=61&originWidth=577&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=6148&status=done&style=none&taskId=ufc79ca23-a394-4a58-8a7e-907bfd6f8c7&title=&width=384.6666666666667" alt="image.png">s状态a行动，转移到s’的概率（类似马尔可夫链）<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708487095942-abfbcde9-4ab0-4b76-ba2e-35d9af5d4bba.png#averageHue=%23f1f1f1&clientId=u0c974a61-2d5f-4&from=paste&height=32&id=u6ede432d&originHeight=48&originWidth=396&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=4782&status=done&style=none&taskId=u661e42d0-1410-42de-99ea-921b4ebb3fd&title=&width=264" alt="image.png">s状态a行动得到的奖赏分数，为什么是期望值：有波动，多次统计等</p><h3 id="折扣因子（γ）"><a href="#折扣因子（γ）" class="headerlink" title="折扣因子（γ）"></a>折扣因子（γ）</h3><ul><li><strong>定义</strong>：折扣因子是一个介于0和1之间的参数，用于调整未来奖赏的当前价值。它反映了智能体对未来奖赏的重视程度。当γ接近1时，智能体更倾向于考虑长远的奖赏；当γ接近0时，智能体则更关注即时的奖赏。</li><li><strong>作用</strong>：折扣因子允许智能体在决策时权衡即时奖赏和未来可能获得的奖赏。在实际应用中，由于资源和时间的限制，智能体往往无法等待无限长的时间来收集奖赏，因此需要通过折扣因子来平衡即时和未来奖赏。</li></ul><h3 id="最大轨迹长度（T）"><a href="#最大轨迹长度（T）" class="headerlink" title="最大轨迹长度（T）"></a>最大轨迹长度（T）</h3><ul><li><strong>定义</strong>：最大轨迹长度是指智能体与环境交互过程中，状态转移序列的最大长度。在强化学习中，轨迹（Trajectory）是从初始状态开始，通过一系列状态转移和奖赏，直到达到终止状态的完整路径。</li><li><strong>作用</strong>：最大轨迹长度为智能体的学习过程设定了一个时间限制。在实际应用中，智能体可能需要在有限的时间内完成任务，或者在资源有限的情况下进行学习。通过设定最大轨迹长度，可以确保智能体在有限的交互次数内学习到有效的策略</li></ul><h3 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708487367709-bc206d9d-f07c-43b8-a39d-a0aa6d427907.png#averageHue=%23f6f6f6&clientId=u0c974a61-2d5f-4&from=paste&height=86&id=u53c0768e&originHeight=129&originWidth=324&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=6985&status=done&style=none&taskId=u36b14efa-128c-4b8a-bf44-d3b89c03332&title=&width=216" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708487973534-21a74bfd-4129-4372-8994-3e923b835449.png#averageHue=%23f1f1f1&clientId=u0c974a61-2d5f-4&from=paste&height=314&id=uf4647f0e&originHeight=471&originWidth=1288&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=151022&status=done&style=none&taskId=ue3f52a1d-48a7-470c-84af-cf4507456d1&title=&width=858.6666666666666" alt="image.png"></p><h3 id="基于值函数的强化学习-VB，q-learning"><a href="#基于值函数的强化学习-VB，q-learning" class="headerlink" title="基于值函数的强化学习(VB，q-learning)"></a>基于值函数的强化学习(VB，q-learning)</h3><p>类似于贪心算法，是否选择某个状态s下的a动作，使得Q值变大<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708498982473-2d7dc08f-839b-49bd-842b-ed7ef7d95a4a.png#averageHue=%23f9f7f5&clientId=u3dbbdc81-488a-4&from=paste&height=438&id=u5272b94f&originHeight=416&originWidth=922&originalType=binary&ratio=0.949999988079071&rotation=0&showTitle=false&size=156775&status=done&style=none&taskId=u9b46e363-59ca-4ba1-b920-0a11153e7a8&title=&width=970.5263279679741" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708499588006-c2585434-180f-4149-b41d-76037d0f8af9.png#averageHue=%23f8f5f1&clientId=ud5db8f74-d884-4&from=paste&height=28&id=W875O&originHeight=27&originWidth=94&originalType=binary&ratio=0.949999988079071&rotation=0&showTitle=false&size=1936&status=done&style=none&taskId=ue6bbbe11-a3c7-4b71-b8ad-1fd221b0ed8&title=&width=98.94736966267848" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708499636439-ba0c111f-4230-445c-b88f-4e8b069e7393.png#averageHue=%23f9f6f3&clientId=ud5db8f74-d884-4&from=paste&height=27&id=uf593f62f&originHeight=35&originWidth=225&originalType=binary&ratio=0.949999988079071&rotation=0&showTitle=false&size=4539&status=done&style=none&taskId=ua61b01b9-f116-49ef-9b8b-9cfdbcbb4dc&title=&width=174.82237243652344" alt="image.png"><strong>指示函数</strong>决定是否进行这个行为<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708499697879-88865f02-0a2c-49cf-8331-8faea01d7aca.png#averageHue=%23fbf9f7&clientId=ud5db8f74-d884-4&from=paste&height=185&id=u34a44668&originHeight=176&originWidth=546&originalType=binary&ratio=0.949999988079071&rotation=0&showTitle=false&size=63069&status=done&style=none&taskId=udb4b01f0-3329-4dcf-867b-ce91c8988ac&title=&width=574.7368493172602" alt="image.png"></p><h3 id="基于策略梯度的强化学习-PG"><a href="#基于策略梯度的强化学习-PG" class="headerlink" title="基于策略梯度的强化学习(PG)"></a>基于策略梯度的强化学习(PG)</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709008509941-98fcffbc-9dbd-4930-93d0-8594b4481850.png#averageHue=%23f4f3f3&clientId=u6ddca154-7380-4&from=paste&height=417&id=u358ee8c5&originHeight=626&originWidth=964&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=90412&status=done&style=none&taskId=u3cbf9054-64d0-4390-b47b-c1d2c299a7d&title=&width=642.6666666666666" alt="image.png"><br>对最优策略进行优化，使用梯度方法</p><h3 id="基于行动者-评论者-AC"><a href="#基于行动者-评论者-AC" class="headerlink" title="基于行动者-评论者(AC)"></a>基于行动者-评论者(AC)</h3><p>传统的行动者-评论者（Actor-Critic）方法由两个部分组成：Actor，用以调整策略πθ 的参数θ； 以及Critic，用来调整状态-动作值函数Qπθ w 的参数w。<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709009002718-0f56b8f7-a7b1-4157-a38d-f0455e9f6422.png#averageHue=%23f4f4f4&clientId=u6ddca154-7380-4&from=paste&height=82&id=u62561d60&originHeight=123&originWidth=773&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=15264&status=done&style=none&taskId=uafcd18bb-814e-4a96-82c6-5db360b667d&title=&width=515.3333333333334" alt="image.png"><br>Actor-Critic 方法将策略梯度方法和值函数近似的方法两者结合，Actor基于概率选择动作，Critic 基于 Actor 选择的动作以及当前状态评判该动作的得分，然后 Actor 根据 Critic 的评分修改其  选择动作的概率。其优势在于此类方法可以进行单步更新，在连续动作空间中得到得到低方差的解，而代价则是学习开始时，由于 Critic 的估计不够准确，算法有较大的波动。  </p><h2 id="多智能体强化学习"><a href="#多智能体强化学习" class="headerlink" title="多智能体强化学习"></a>多智能体强化学习</h2><h3 id="多智能体系统"><a href="#多智能体系统" class="headerlink" title="多智能体系统"></a>多智能体系统</h3><p>多智能体系统由分布式人工智能（Distributed Artificial Intelligence，DAI）演变而来，其 研究目的是解决大规模、复杂、实时和有不确定性的现实问题，此类问题通过单智能体建模往往会 效率低下并且与现实条件相悖。  </p><h2 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h2><p>正则式博弈， 零和博弈， 策略与策略组合， 最优反应， 纳什均衡，Minmax，Maxmin， 相关均衡， 斯塔克尔伯格均衡</p><h2 id="多智能体强化学习-1"><a href="#多智能体强化学习-1" class="headerlink" title="多智能体强化学习"></a>多智能体强化学习</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709009719029-68650428-9296-43f3-bf3e-be833de89f02.png#averageHue=%23f3f2f2&clientId=u9f2d59ac-852e-4&from=paste&height=486&id=u11a0f0b8&originHeight=729&originWidth=1191&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=139125&status=done&style=none&taskId=u77f3708f-d1d7-410f-892d-180827d1d74&title=&width=794" alt="image.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>综述</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>人工智能对齐：全面性综述</title>
+    <link href="/2024/02/21/%E7%BB%BC%E8%BF%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%B9%E9%BD%90/"/>
+    <url>/2024/02/21/%E7%BB%BC%E8%BF%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%B9%E9%BD%90/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h1 id="人工智能对齐：全面性综述"><a href="#人工智能对齐：全面性综述" class="headerlink" title="人工智能对齐：全面性综述"></a>人工智能对齐：全面性综述</h1><h3 id="paper地址www-alignmentsurvey-com"><a href="#paper地址www-alignmentsurvey-com" class="headerlink" title="paper地址www.alignmentsurvey.com"></a>paper地址<a href="https://alignmentsurvey.com/">www.alignmentsurvey.com</a></h3><h3 id="talk地址https-www-bilibili-com-video-BV1Nw411t74v"><a href="#talk地址https-www-bilibili-com-video-BV1Nw411t74v" class="headerlink" title="talk地址https://www.bilibili.com/video/BV1Nw411t74v"></a>talk地址<a href="https://www.bilibili.com/video/BV1Nw411t74v">https://www.bilibili.com/video/BV1Nw411t74v</a></h3><h3 id="解读：https-www-jiqizhixin-com-articles-2023-11-01-4"><a href="#解读：https-www-jiqizhixin-com-articles-2023-11-01-4" class="headerlink" title="解读：https://www.jiqizhixin.com/articles/2023-11-01-4"></a>解读：<a href="https://www.jiqizhixin.com/articles/2023-11-01-4">https://www.jiqizhixin.com/articles/2023-11-01-4</a></h3><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><h2 id="LLMs的担忧"><a href="#LLMs的担忧" class="headerlink" title="LLMs的担忧"></a>LLMs的担忧</h2><h3 id="人工智能“不择手段”的去优化奖励函数-去Follow非中立标注者的意图来获得正向反馈"><a href="#人工智能“不择手段”的去优化奖励函数-去Follow非中立标注者的意图来获得正向反馈" class="headerlink" title="人工智能“不择手段”的去优化奖励函数,去Follow非中立标注者的意图来获得正向反馈"></a>人工智能“不择手段”的去优化奖励函数,去Follow非中立标注者的意图来获得正向反馈</h3><h2 id="RICE框架"><a href="#RICE框架" class="headerlink" title="RICE框架"></a>RICE框架</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708480982804-cc7a7d55-b9fb-4bcc-933c-4ef46f4384ee.png#averageHue=%23eeedec&id=k9Pcc&originHeight=1036&originWidth=1509&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="><br>鲁棒性(Robustness)、可解释性 (Interpretability)、可控性 (Controllability) 和道德性 (Ethicality)</p><h2 id="前向对齐和后向对齐"><a href="#前向对齐和后向对齐" class="headerlink" title="前向对齐和后向对齐"></a>前向对齐和后向对齐</h2><h3 id="部署前（反馈学习，分布偏移）-部署后（后向对齐验证，人工智能治理）"><a href="#部署前（反馈学习，分布偏移）-部署后（后向对齐验证，人工智能治理）" class="headerlink" title="部署前（反馈学习，分布偏移）&amp;部署后（后向对齐验证，人工智能治理）"></a>部署前（反馈学习，分布偏移）&amp;部署后（后向对齐验证，人工智能治理）</h3><h3 id="反馈学习：何对在复杂场景中运行的超级人工智能系统提供高质量的反馈，机器学习伦理"><a href="#反馈学习：何对在复杂场景中运行的超级人工智能系统提供高质量的反馈，机器学习伦理" class="headerlink" title="反馈学习：何对在复杂场景中运行的超级人工智能系统提供高质量的反馈，机器学习伦理"></a>反馈学习：何对在复杂场景中运行的超级人工智能系统提供高质量的反馈，机器学习伦理</h3><h3 id="分布偏移：目标错误泛化（不择手段获得认可），自诱发分布偏移（推荐系统，获取想要的输入反馈）。算法干预，数据分布干预"><a href="#分布偏移：目标错误泛化（不择手段获得认可），自诱发分布偏移（推荐系统，获取想要的输入反馈）。算法干预，数据分布干预" class="headerlink" title="分布偏移：目标错误泛化（不择手段获得认可），自诱发分布偏移（推荐系统，获取想要的输入反馈）。算法干预，数据分布干预"></a>分布偏移：目标错误泛化（不择手段获得认可），自诱发分布偏移（推荐系统，获取想要的输入反馈）。算法干预，数据分布干预</h3><h3 id="对齐失败，双刃剑组件"><a href="#对齐失败，双刃剑组件" class="headerlink" title="对齐失败，双刃剑组件"></a>对齐失败，双刃剑组件</h3><h1 id="从反馈中学习"><a href="#从反馈中学习" class="headerlink" title="从反馈中学习"></a>从反馈中学习</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708480982966-929f8890-b02d-40ef-ab12-d4d72f7468b6.png#averageHue=%23ededed&id=z3QZI&originHeight=724&originWidth=1282&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p><h2 id="反馈类型"><a href="#反馈类型" class="headerlink" title="反馈类型"></a>反馈类型</h2><h3 id="奖励：标量分数"><a href="#奖励：标量分数" class="headerlink" title="奖励：标量分数"></a>奖励：标量分数</h3><h3 id="示范：去模仿人类的某一个行为（模仿学习，IL）"><a href="#示范：去模仿人类的某一个行为（模仿学习，IL）" class="headerlink" title="示范：去模仿人类的某一个行为（模仿学习，IL）"></a>示范：去模仿人类的某一个行为（模仿学习，IL）</h3><h3 id="比较：对一系列行为排名"><a href="#比较：对一系列行为排名" class="headerlink" title="比较：对一系列行为排名"></a>比较：对一系列行为排名</h3><h3 id="如何对复杂行为定义奖励（超出人类的认知，可拓展监督），如何表达中立人类的价值观（可控性，道德性）"><a href="#如何对复杂行为定义奖励（超出人类的认知，可拓展监督），如何表达中立人类的价值观（可控性，道德性）" class="headerlink" title="如何对复杂行为定义奖励（超出人类的认知，可拓展监督），如何表达中立人类的价值观（可控性，道德性）"></a>如何对复杂行为定义奖励（超出人类的认知，可拓展监督），如何表达中立人类的价值观（可控性，道德性）</h3><h2 id="偏好建模"><a href="#偏好建模" class="headerlink" title="偏好建模"></a>偏好建模</h2><h3 id="基于比较反馈的偏好建模，偏好粒度，偏好类别（绝对，相对），奖励模型（比较反馈转化为标量）"><a href="#基于比较反馈的偏好建模，偏好粒度，偏好类别（绝对，相对），奖励模型（比较反馈转化为标量）" class="headerlink" title="基于比较反馈的偏好建模，偏好粒度，偏好类别（绝对，相对），奖励模型（比较反馈转化为标量）"></a>基于比较反馈的偏好建模，偏好粒度，偏好类别（绝对，相对），奖励模型（比较反馈转化为标量）</h3><h2 id="可扩展监督"><a href="#可扩展监督" class="headerlink" title="可扩展监督"></a>可扩展监督</h2><h3 id="可扩展监督旨在确保人工智能系统即使在超越了人类的专业知识的情况下，仍然与人类的意图保持一致"><a href="#可扩展监督旨在确保人工智能系统即使在超越了人类的专业知识的情况下，仍然与人类的意图保持一致" class="headerlink" title="可扩展监督旨在确保人工智能系统即使在超越了人类的专业知识的情况下，仍然与人类的意图保持一致"></a>可扩展监督旨在确保人工智能系统即使在超越了人类的专业知识的情况下，仍然与人类的意图保持一致</h3><h3 id="RLHF，变体RLxF-RLAIF-RLHAIF"><a href="#RLHF，变体RLxF-RLAIF-RLHAIF" class="headerlink" title="RLHF，变体RLxF,RLAIF,RLHAIF"></a>RLHF，变体RLxF,RLAIF,RLHAIF</h3><h3 id="IDA（分解任务），RRM（AI协助用户评价）Debate（两个具有分歧的AI系统对抗），CIRL（持续观察所有目标）"><a href="#IDA（分解任务），RRM（AI协助用户评价）Debate（两个具有分歧的AI系统对抗），CIRL（持续观察所有目标）" class="headerlink" title="IDA（分解任务），RRM（AI协助用户评价）Debate（两个具有分歧的AI系统对抗），CIRL（持续观察所有目标）"></a>IDA（分解任务），RRM（AI协助用户评价）Debate（两个具有分歧的AI系统对抗），CIRL（持续观察所有目标）</h3><h1 id="在分布偏移下学习"><a href="#在分布偏移下学习" class="headerlink" title="在分布偏移下学习"></a>在分布偏移下学习</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708480983100-023af888-59e3-45ce-a2c9-d5379761ff4e.png#averageHue=%23e6e6e6&id=rNM8I&originHeight=859&originWidth=1406&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="><br>分布偏移的挑战</p><h3 id="目标错误泛化，自诱发分布偏移"><a href="#目标错误泛化，自诱发分布偏移" class="headerlink" title="目标错误泛化，自诱发分布偏移"></a>目标错误泛化，自诱发分布偏移</h3><p>算法干预：融合多分布，分布鲁棒性优化，模式连接<br>数据分布干预：对抗训练（对抗样本），合作训练（协作学习）<br>对齐保证</p><h3 id="安全测评（鲁棒性），基准，评估目标，红队攻击"><a href="#安全测评（鲁棒性），基准，评估目标，红队攻击" class="headerlink" title="安全测评（鲁棒性），基准，评估目标，红队攻击"></a>安全测评（鲁棒性），基准，评估目标，红队攻击</h3><h3 id="可解释性，道德性"><a href="#可解释性，道德性" class="headerlink" title="可解释性，道德性"></a>可解释性，道德性</h3><h2 id><a href="#" class="headerlink" title></a></h2><h1 id="人工智能治理"><a href="#人工智能治理" class="headerlink" title="人工智能治理"></a>人工智能治理</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1708480983204-4d79e74f-5278-4543-9040-278f00148ebd.png#averageHue=%23f4f3f3&id=efUu6&originHeight=740&originWidth=1370&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>综述</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>快速开始</title>
+    <link href="/2024/02/21/%E6%96%87%E6%A1%A3/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/"/>
+    <url>/2024/02/21/%E6%96%87%E6%A1%A3/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文档</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

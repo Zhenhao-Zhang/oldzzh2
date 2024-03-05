@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhzhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learningQmix： 用于深度多代理强化学习的单调值函数因式分解https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;353524210https:&#x2F;&#x2F;proceedings.mlr.press&#x2F;v80&#x2F;rashid18a&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QMIX">
+<meta property="og:url" content="http://zhzhang.top/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/6QMIX,ICML18/index.html">
+<meta property="og:site_name" content="zhzhang">
+<meta property="og:description" content="Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learningQmix： 用于深度多代理强化学习的单调值函数因式分解https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;353524210https:&#x2F;&#x2F;proceedings.mlr.press&#x2F;v80&#x2F;rashid18a&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709011958605-9f6be777-4d3d-4b03-a431-213b32be32b6.png#averageHue=%23faf9f9&clientId=u37125000-3bca-4&from=paste&height=297&id=uda8c91dd&originHeight=446&originWidth=1049&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217253&status=done&style=none&taskId=ucfe49fe2-9133-4813-9456-cde6c504f57&title=&width=699.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016512747-ea8e8282-b8b4-47d5-9a0c-ef23156981f7.png#averageHue=%23f7f6f5&clientId=u4bf42cf8-5ba7-4&from=paste&id=ufa3733c7&originHeight=315&originWidth=804&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=32258&status=done&style=none&taskId=u225a8851-1523-4ecf-bd61-4fd1345fc72&title=">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016666104-f0894631-7155-4d7b-a344-5346ac1a976f.png#averageHue=%23f9f0ef&clientId=u4bf42cf8-5ba7-4&from=paste&height=276&id=ucb90c6d8&originHeight=414&originWidth=296&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=73839&status=done&style=none&taskId=u9d2a8d25-3196-4bfb-b15c-d20c2cb255c&title=&width=197.33333333333334">
+<meta property="article:published_time" content="2024-03-05T09:46:37.405Z">
+<meta property="article:modified_time" content="2024-03-05T10:03:59.032Z">
+<meta property="article:author" content="zhzhang">
+<meta property="article:tag" content="经典算法">
+<meta property="article:tag" content="ICML">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709011958605-9f6be777-4d3d-4b03-a431-213b32be32b6.png#averageHue=%23faf9f9&clientId=u37125000-3bca-4&from=paste&height=297&id=uda8c91dd&originHeight=446&originWidth=1049&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217253&status=done&style=none&taskId=ucfe49fe2-9133-4813-9456-cde6c504f57&title=&width=699.3333333333334">
+  
+  
+  
+  <title>QMIX - zhzhang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhzhang.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zhzhang</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="QMIX"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-05 17:46" pubdate>
+          2024年3月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          436 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">QMIX</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer">
+
+
+<h1 id="Qmix-Monotonic-value-function-factorisation-for-deep-multi-agent-reinforcement-learning"><a href="#Qmix-Monotonic-value-function-factorisation-for-deep-multi-agent-reinforcement-learning" class="headerlink" title="Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learning"></a>Qmix: Monotonic value function factorisation for deep multi-agent reinforcement learning</h1><p>Qmix： 用于深度多代理强化学习的单调值函数因式分解<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/353524210">https://zhuanlan.zhihu.com/p/353524210</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf">https://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf</a></p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>多智能体强化学习训练中面临的最大问题是：训练阶段和执行阶段获取的信息可能存在不对等问题。即，在训练的时候我们可以获得<strong>大量的全局信息</strong>。<br>但在最终应用模型的时候，我们是无法获取到训练时那么多的全局信息的，因此，人们提出两个训练网络：一个为<strong>中心式训练网络</strong>，该网络只在训练阶段存在，获取全局信息作为输入并指导智能体行为控制网络进行更新；另一个为<strong>行为控制网络</strong>，该网络也是最终被应用的网络，在训练和应用阶段都保持着相同的数据输入。</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709011958605-9f6be777-4d3d-4b03-a431-213b32be32b6.png#averageHue=%23faf9f9&clientId=u37125000-3bca-4&from=paste&height=297&id=uda8c91dd&originHeight=446&originWidth=1049&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=217253&status=done&style=none&taskId=ucfe49fe2-9133-4813-9456-cde6c504f57&title=&width=699.3333333333334" srcset="/img/loading.gif" lazyload alt="image.png"><br> Mixing Network（类比 Critic 网络）和 Agent RNN Network（类比 Actor 网络）</p>
+<h2 id="Agent-RNN-Network"><a href="#Agent-RNN-Network" class="headerlink" title="Agent RNN Network"></a>Agent RNN Network</h2><p>QMIX 中每一个 Agent 都由 RNN 网络控制，训练时可以为每一个 Agent 个体都训练一个独立的 RNN 网络，同样也可以所有 Agent 复用同一个 RNN 网络<br><strong>MLP+GRU+MLP</strong></p>
+<h2 id="Mixing-Network"><a href="#Mixing-Network" class="headerlink" title="Mixing Network"></a>Mixing Network</h2><p>网络同时接受Agent RNN Network的Q值和全局状态<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016512747-ea8e8282-b8b4-47d5-9a0c-ef23156981f7.png#averageHue=%23f7f6f5&clientId=u4bf42cf8-5ba7-4&from=paste&id=ufa3733c7&originHeight=315&originWidth=804&originalType=url&ratio=1.5&rotation=0&showTitle=false&size=32258&status=done&style=none&taskId=u225a8851-1523-4ecf-bd61-4fd1345fc72&title=" srcset="/img/loading.gif" lazyload alt="image.png"><br>训练过程中，使用全局信息生成参数，然后得到总体函数Qtot<br>实际使用过程中，只使用推理网络（蓝色部分）<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709016666104-f0894631-7155-4d7b-a344-5346ac1a976f.png#averageHue=%23f9f0ef&clientId=u4bf42cf8-5ba7-4&from=paste&height=276&id=ucb90c6d8&originHeight=414&originWidth=296&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=73839&status=done&style=none&taskId=u9d2a8d25-3196-4bfb-b15c-d20c2cb255c&title=&width=197.33333333333334" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h1 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h1><p>在不久的将来，我们的目标是进行更多的实验，以比较具有更多数量和更大多样性的单元的任务方法。从长远来看，我们的目标是为具有许多学习代理的设置提供更协调的探索方案来补充QMIX。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A7%91%E7%A0%94/" class="category-chain-item">科研</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/" class="print-no-link">#经典算法</a>
+      
+        <a href="/tags/ICML/" class="print-no-link">#ICML</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>QMIX</div>
+      <div>http://zhzhang.top/2024/03/05/经典算法/6QMIX,ICML18/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhzhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/7MAT,NeurIPS22/" title="MAT">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MAT</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/05/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/5VDN,AAMAS18/" title="VDN">
+                        <span class="hidden-mobile">VDN</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
