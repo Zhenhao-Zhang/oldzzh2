@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhzhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="https:&#x2F;&#x2F;openreview.net&#x2F;forum?id&#x3D;o2IEmeLL9r作者主页https:&#x2F;&#x2F;yhqpkueecs.github.io&#x2F;talkhttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Ui421Z7fv【ICLR2024】pre_training_goal_based_models.pdf 袁昊琦_watermark.pdf Abstract and In">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning">
+<meta property="og:url" content="http://zhzhang.top/2024/03/07/pre_train+PL/Pre-Training%20Goal-based%20Models%20for%20Sample-Efficient%20Reinforcement%20Learning/index.html">
+<meta property="og:site_name" content="zhzhang">
+<meta property="og:description" content="https:&#x2F;&#x2F;openreview.net&#x2F;forum?id&#x3D;o2IEmeLL9r作者主页https:&#x2F;&#x2F;yhqpkueecs.github.io&#x2F;talkhttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Ui421Z7fv【ICLR2024】pre_training_goal_based_models.pdf 袁昊琦_watermark.pdf Abstract and In">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709534838731-21c1c3c4-4581-4ae6-a4c1-8e1fd1362e76.png#averageHue=%23f0edea&clientId=uff883f20-b823-4&from=paste&height=110&id=u7de61052&originHeight=110&originWidth=965&originalType=binary&ratio=1&rotation=0&showTitle=false&size=88585&status=done&style=none&taskId=ubea93ab8-ddd5-4703-b279-dc94d5c5268&title=&width=965">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709536578252-5021462c-cfe4-4098-8d12-0958cfb6dba7.png#averageHue=%23c3b19e&clientId=uff883f20-b823-4&from=paste&height=148&id=u3ba1d8cf&originHeight=128&originWidth=645&originalType=binary&ratio=1&rotation=0&showTitle=false&size=102735&status=done&style=none&taskId=u45d2b54a-0c52-4a3e-88a5-37cee3488f9&title=&width=746">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709818666112-975571b7-82d9-48cb-ae4e-4cbc19a6cbcf.png#averageHue=%23f8f7f2&clientId=u6ebf07cf-94bd-4&from=paste&height=358&id=u5ce1f03f&originHeight=537&originWidth=1665&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=332590&status=done&style=none&taskId=u4b1ab64e-a1a6-4fdd-9757-3fe8d58973d&title=&width=1110">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709716068157-e67095ca-f76b-4386-b545-be5d79eab907.png#averageHue=%23f3f0ec&clientId=ucfb0241e-a21f-4&from=paste&height=22&id=u9b1cd1d8&originHeight=22&originWidth=206&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5640&status=done&style=none&taskId=ua522fbec-a82b-4c75-af2d-24078038bd3&title=&width=206">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709717955052-26a96eac-a16f-4135-927b-3f0f6e9a8bf8.png#averageHue=%23f3bfbb&clientId=ucfb0241e-a21f-4&from=paste&height=62&id=u24d744eb&originHeight=62&originWidth=661&originalType=binary&ratio=1&rotation=0&showTitle=false&size=43640&status=done&style=none&taskId=ufefac916-dbdf-4b3f-be69-986cb85f970&title=&width=661">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709727840368-79169bd2-0d15-4dff-a91d-8428c9ed4fb6.png#averageHue=%23bfac9a&clientId=ud47b2f5f-ac1a-4&from=paste&height=91&id=u635806d6&originHeight=91&originWidth=761&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70628&status=done&style=none&taskId=ua97f2680-2522-4a29-a3e0-c7373704b89&title=&width=761">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709795395613-fef224bc-9851-4df4-91ff-be49f6f10a6b.png#averageHue=%23faf9f8&clientId=ub61f62a8-71a6-4&from=paste&height=67&id=u3c277e5a&originHeight=56&originWidth=605&originalType=binary&ratio=1&rotation=0&showTitle=false&size=16337&status=done&style=none&taskId=uc6b44e04-9db0-4b67-9b5e-c0e0d2668b9&title=&width=727">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709798992154-c0eab208-54f7-4f78-98d3-0f90e875ba88.png#averageHue=%23f8f7f5&clientId=ub61f62a8-71a6-4&from=paste&height=39&id=ue35f017d&originHeight=51&originWidth=116&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5026&status=done&style=none&taskId=uf9741a74-9622-4aa0-912b-9068fdad247&title=&width=89">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709799841869-00b74618-bbd2-4578-bbd5-0469623d01d5.png#averageHue=%23f9f8f6&clientId=ub61f62a8-71a6-4&from=paste&height=40&id=u4840849e&originHeight=40&originWidth=289&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6761&status=done&style=none&taskId=u892da04b-1cbb-4cff-86c0-4a8458d906c&title=&width=289">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709819666354-be36f162-7e34-460a-b1b1-ec5c03a5f2b7.png#averageHue=%23ede9e6&clientId=u6ebf07cf-94bd-4&from=paste&height=642&id=uafaebea7&originHeight=963&originWidth=1811&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1028899&status=done&style=none&taskId=u2b8e0b09-ce4e-4397-8dfe-aba41f5516e&title=&width=1207.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709810916878-a04f1ed2-ca06-4978-8c7c-5f0201f18343.png#averageHue=%23f4f1ed&clientId=ub61f62a8-71a6-4&from=paste&height=397&id=u826a14a6&originHeight=397&originWidth=775&originalType=binary&ratio=1&rotation=0&showTitle=false&size=167145&status=done&style=none&taskId=ub6e22bc1-5bf6-4f18-a1ce-3978d74655b&title=&width=775">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709814989114-3822eed1-acc3-47f0-a77b-3aab2e63af58.png#averageHue=%23c8bcaf&clientId=ub61f62a8-71a6-4&from=paste&height=67&id=u4a797e03&originHeight=67&originWidth=719&originalType=binary&ratio=1&rotation=0&showTitle=false&size=58336&status=done&style=none&taskId=u7f651921-8a0e-43fe-a928-ab2794c07cd&title=&width=719">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709816924881-bc534e14-6d86-40fe-8a9b-0e3408d63fb9.png#averageHue=%23fbfafa&clientId=ub61f62a8-71a6-4&from=paste&height=133&id=u20643935&originHeight=111&originWidth=597&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22811&status=done&style=none&taskId=u532b374f-9137-4e2d-b21c-ab502c3fba1&title=&width=714">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709817274932-c1fb0565-bdbd-44f8-ad62-0d0329407508.png#averageHue=%23c0ae9a&clientId=ub61f62a8-71a6-4&from=paste&height=153&id=u540f7298&originHeight=153&originWidth=754&originalType=binary&ratio=1&rotation=0&showTitle=false&size=144349&status=done&style=none&taskId=u954bff27-9bf9-43a9-a057-6b420561e97&title=&width=754">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709819625244-afa50a20-5807-49cd-a409-ea0d3a7e32d5.png#averageHue=%23efedeb&clientId=u6ebf07cf-94bd-4&from=paste&height=609&id=u343c0179&originHeight=914&originWidth=1807&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1078415&status=done&style=none&taskId=u0d4496dd-a936-421e-86bd-1ca586c34d0&title=&width=1204.6666666666667">
+<meta property="article:published_time" content="2024-03-07T14:15:15.698Z">
+<meta property="article:modified_time" content="2024-03-07T14:17:30.277Z">
+<meta property="article:author" content="zhzhang">
+<meta property="article:tag" content="pretrainRL">
+<meta property="article:tag" content="ICLR24">
+<meta property="article:tag" content="ICLR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709534838731-21c1c3c4-4581-4ae6-a4c1-8e1fd1362e76.png#averageHue=%23f0edea&clientId=uff883f20-b823-4&from=paste&height=110&id=u7de61052&originHeight=110&originWidth=965&originalType=binary&ratio=1&rotation=0&showTitle=false&size=88585&status=done&style=none&taskId=ubea93ab8-ddd5-4703-b279-dc94d5c5268&title=&width=965">
+  
+  
+  
+  <title>Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning - zhzhang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhzhang.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zhzhang</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-07 22:15" pubdate>
+          2024年3月7日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          818 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=o2IEmeLL9r">https://openreview.net/forum?id=o2IEmeLL9r</a><br>作者主页<a target="_blank" rel="noopener" href="https://yhqpkueecs.github.io/">https://yhqpkueecs.github.io/</a><br>talk<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ui421Z7fv">https://www.bilibili.com/video/BV1Ui421Z7fv</a><br><a target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2024/pdf/29434400/1709716236252-2b66a93f-bdb3-483c-9635-ddb4807b3eab.pdf">【ICLR2024】pre_training_goal_based_models.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2024/pdf/29434400/1709820153278-3cb64fc1-df83-4a32-9443-b1109753f1e4.pdf">袁昊琦_watermark.pdf</a><br><a name="mmQAD"></a></p>
+<h1 id="Abstract-and-Introduction"><a href="#Abstract-and-Introduction" class="headerlink" title="Abstract and Introduction"></a>Abstract and Introduction</h1><p>机器人开放世界，我的世界等游戏环境复杂<br>在<strong>任务不可知</strong>的大数据集上进行预训练是提高强化学习(RL)解决复杂任务的样本效率的一种有前途的方法。<br>任务不可知：如我的世界游戏，玩家在探索而不是进行特定的任务<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709534838731-21c1c3c4-4581-4ae6-a4c1-8e1fd1362e76.png#averageHue=%23f0edea&clientId=uff883f20-b823-4&from=paste&height=110&id=u7de61052&originHeight=110&originWidth=965&originalType=binary&ratio=1&rotation=0&showTitle=false&size=88585&status=done&style=none&taskId=ubea93ab8-ddd5-4703-b279-dc94d5c5268&title=&width=965" srcset="/img/loading.gif" lazyload alt="image.png"><br>通过预训练了一个高级策略，并且在每一步都会输出一个目标。训练的几个时间步长的低级的“目标适应”策略将会以这个目标为基础<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709536578252-5021462c-cfe4-4098-8d12-0958cfb6dba7.png#averageHue=%23c3b19e&clientId=uff883f20-b823-4&from=paste&height=148&id=u3ba1d8cf&originHeight=128&originWidth=645&originalType=binary&ratio=1&rotation=0&showTitle=false&size=102735&status=done&style=none&taskId=u45d2b54a-0c52-4a3e-88a5-37cee3488f9&title=&width=746" srcset="/img/loading.gif" lazyload alt="image.png"><br>使用大量数据进行训练，可以从离散的空间学习，并且不会大量降低容量，使用模型预测未来的目标分布，使用KL散度作为目标奖励<br><strong>主要贡献：与现有方法相比，更稳定，在low-level问题泛化上有优势；提高了高级策略的训练效率；</strong><br><strong>学习一些skill，每一个skill决定了k步的动作，提供了一个时序上的抽象</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709818666112-975571b7-82d9-48cb-ae4e-4cbc19a6cbcf.png#averageHue=%23f8f7f2&clientId=u6ebf07cf-94bd-4&from=paste&height=358&id=u5ce1f03f&originHeight=537&originWidth=1665&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=332590&status=done&style=none&taskId=u4b1ab64e-a1a6-4fdd-9757-3fe8d58973d&title=&width=1110" srcset="/img/loading.gif" lazyload alt="image.png"><br><a name="wnr2d"></a></p>
+<h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><p>pre_train for rl 基于已知动作和未知的。已知：模仿学习，<strong>offline rl</strong>，<a target="_blank" rel="noopener" href="https://www.yuque.com/xilou-f7acw/paper2024/uz00n69gcisfokin">MAT</a>方法<br>GCRL,目标条件强化学习。稀疏奖励：智能体大多数时间都不会获得奖励<br>分层RL，多层次进行时间抽象<br><a name="R3Ocp"></a></p>
+<h1 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h1><p>MDP过程,多元组(S,A,P,p,R,y),状态，行动，转移概率（the transition probability of the environment,），初始分布状态，奖励函数，折扣因子<br>优化目标<img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709716068157-e67095ca-f76b-4386-b545-be5d79eab907.png#averageHue=%23f3f0ec&clientId=ucfb0241e-a21f-4&from=paste&height=22&id=u9b1cd1d8&originHeight=22&originWidth=206&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5640&status=done&style=none&taskId=ua522fbec-a82b-4c75-af2d-24078038bd3&title=&width=206" srcset="/img/loading.gif" lazyload alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709717955052-26a96eac-a16f-4135-927b-3f0f6e9a8bf8.png#averageHue=%23f3bfbb&clientId=ucfb0241e-a21f-4&from=paste&height=62&id=u24d744eb&originHeight=62&originWidth=661&originalType=binary&ratio=1&rotation=0&showTitle=false&size=43640&status=done&style=none&taskId=ufefac916-dbdf-4b3f-be69-986cb85f970&title=&width=661" srcset="/img/loading.gif" lazyload alt="image.png"><br><strong>online-rl学习方式（是否可以改成offline-rl？）</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709727840368-79169bd2-0d15-4dff-a91d-8428c9ed4fb6.png#averageHue=%23bfac9a&clientId=ud47b2f5f-ac1a-4&from=paste&height=91&id=u635806d6&originHeight=91&originWidth=761&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70628&status=done&style=none&taskId=ua97f2680-2522-4a29-a3e0-c7373704b89&title=&width=761" srcset="/img/loading.gif" lazyload alt="image.png"><br><strong>将Action空间Ak压缩到Zt,用类似Transformer的方法来训练pre_train模型</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709795395613-fef224bc-9851-4df4-91ff-be49f6f10a6b.png#averageHue=%23faf9f8&clientId=ub61f62a8-71a6-4&from=paste&height=67&id=u3c277e5a&originHeight=56&originWidth=605&originalType=binary&ratio=1&rotation=0&showTitle=false&size=16337&status=done&style=none&taskId=uc6b44e04-9db0-4b67-9b5e-c0e0d2668b9&title=&width=727" srcset="/img/loading.gif" lazyload alt="image.png">从t到t+k的<strong>动作序列</strong>，初始状态St，目标状态Sg，d表示对某一步动作的采样<br>为了学习<img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709798992154-c0eab208-54f7-4f78-98d3-0f90e875ba88.png#averageHue=%23f8f7f5&clientId=ub61f62a8-71a6-4&from=paste&height=39&id=ue35f017d&originHeight=51&originWidth=116&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5026&status=done&style=none&taskId=uf9741a74-9622-4aa0-912b-9068fdad247&title=&width=89" srcset="/img/loading.gif" lazyload alt="image.png">，将每个状态-动作组的目标状态标记为最终目标状态<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709799841869-00b74618-bbd2-4578-bbd5-0469623d01d5.png#averageHue=%23f9f8f6&clientId=ub61f62a8-71a6-4&from=paste&height=40&id=u4840849e&originHeight=40&originWidth=289&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6761&status=done&style=none&taskId=u892da04b-1cbb-4cff-86c0-4a8458d906c&title=&width=289" srcset="/img/loading.gif" lazyload alt="image.png">优化目标<strong>（为什么不用最大化正对数？）</strong><br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709819666354-be36f162-7e34-460a-b1b1-ec5c03a5f2b7.png#averageHue=%23ede9e6&clientId=u6ebf07cf-94bd-4&from=paste&height=642&id=uafaebea7&originHeight=963&originWidth=1811&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1028899&status=done&style=none&taskId=u2b8e0b09-ce4e-4397-8dfe-aba41f5516e&title=&width=1207.3333333333333" srcset="/img/loading.gif" lazyload alt="image.png"><br>以最后一帧作为目标<br><a name="usPvB"></a></p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709810916878-a04f1ed2-ca06-4978-8c7c-5f0201f18343.png#averageHue=%23f4f1ed&clientId=ub61f62a8-71a6-4&from=paste&height=397&id=u826a14a6&originHeight=397&originWidth=775&originalType=binary&ratio=1&rotation=0&showTitle=false&size=167145&status=done&style=none&taskId=ub6e22bc1-5bf6-4f18-a1ce-3978d74655b&title=&width=775" srcset="/img/loading.gif" lazyload alt="image.png"><br>聚类算法，将多个相似的空间聚类到一起，认为action是类似的<br><a name="aOgVQ"></a></p>
+<h2 id="预训练策略模型"><a href="#预训练策略模型" class="headerlink" title="预训练策略模型"></a>预训练策略模型</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709814989114-3822eed1-acc3-47f0-a77b-3aab2e63af58.png#averageHue=%23c8bcaf&clientId=ub61f62a8-71a6-4&from=paste&height=67&id=u4a797e03&originHeight=67&originWidth=719&originalType=binary&ratio=1&rotation=0&showTitle=false&size=58336&status=done&style=none&taskId=u7f651921-8a0e-43fe-a928-ab2794c07cd&title=&width=719" srcset="/img/loading.gif" lazyload alt="image.png"><br>使用余弦相似度计算下一个状态<br>训练出的skill模型与高级策略<strong>类似</strong><br><a name="teNzB"></a></p>
+<h2 id="使用PTGM进行强化学习"><a href="#使用PTGM进行强化学习" class="headerlink" title="使用PTGM进行强化学习"></a>使用PTGM进行强化学习</h2><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709816924881-bc534e14-6d86-40fe-8a9b-0e3408d63fb9.png#averageHue=%23fbfafa&clientId=ub61f62a8-71a6-4&from=paste&height=133&id=u20643935&originHeight=111&originWidth=597&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22811&status=done&style=none&taskId=u532b374f-9137-4e2d-b21c-ab502c3fba1&title=&width=714" srcset="/img/loading.gif" lazyload alt="image.png"><br>优化对象：reward+与预训练模型的KL散度的差值<br><a name="Ah7yt"></a></p>
+<h1 id="Future-Work"><a href="#Future-Work" class="headerlink" title="Future Work"></a>Future Work</h1><p><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709817274932-c1fb0565-bdbd-44f8-ad62-0d0329407508.png#averageHue=%23c0ae9a&clientId=ub61f62a8-71a6-4&from=paste&height=153&id=u540f7298&originHeight=153&originWidth=754&originalType=binary&ratio=1&rotation=0&showTitle=false&size=144349&status=done&style=none&taskId=u954bff27-9bf9-43a9-a057-6b420561e97&title=&width=754" srcset="/img/loading.gif" lazyload alt="image.png"><br>然而，我们认识到未来工作的一些限制和方向。首先，PTGM中的目标空间本质上是由离线数据集决定的，使得获得的技能容易受到数据偏差的影响。代理可能很难执行看不见的技能，比如在《我的世界》中挤牛奶，因为使用的数据集包含很少的此类行为实例。在未来，我们计划使用更大的互联网规模的数据集来增强PTGM的能力。其次，目标聚类的有效性依赖于良好的状态表示，该状态表示可以紧凑地表示目标，特别是在有图像观测的环境中。我们把更好的PTGM目标表征学习留给未来的工作。<br>本文编码方式<br><img src="https://cdn.nlark.com/yuque/0/2024/png/29434400/1709819625244-afa50a20-5807-49cd-a409-ea0d3a7e32d5.png#averageHue=%23efedeb&clientId=u6ebf07cf-94bd-4&from=paste&height=609&id=u343c0179&originHeight=914&originWidth=1807&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1078415&status=done&style=none&taskId=u0d4496dd-a936-421e-86bd-1ca586c34d0&title=&width=1204.6666666666667" srcset="/img/loading.gif" lazyload alt="image.png"><br>改进想法：<strong>k-step达到目标</strong>的时候进行停止（接近目标），而不是固定步长<br> </p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A7%91%E7%A0%94/" class="category-chain-item">科研</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/pretrainRL/" class="print-no-link">#pretrainRL</a>
+      
+        <a href="/tags/ICLR24/" class="print-no-link">#ICLR24</a>
+      
+        <a href="/tags/ICLR/" class="print-no-link">#ICLR</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning</div>
+      <div>http://zhzhang.top/2024/03/07/pre_train+PL/Pre-Training Goal-based Models for Sample-Efficient Reinforcement Learning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhzhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/05/%E6%9D%82%E8%B0%88/%E4%BF%9D%E7%A0%94%E7%BB%8F%E5%8E%86/" title="末流211CS入营清华大学保研失败经历">
+                        <span class="hidden-mobile">末流211CS入营清华大学保研失败经历</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="font-size: 0.85rem"> <span>zhzhang.top 快速与我联系：upczzhcv@163.com</span> </p> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
