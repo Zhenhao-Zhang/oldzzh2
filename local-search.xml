@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>Pre-training Contextualized World Models with In-the-wild Videos for Reinforcement Learning</title>
+    <title>BIRD:Generalizable Backdoor Detection and Removal for Deep Reinforcement Learning</title>
     <link href="/2024/03/17/robotics+RL/BIRD_%20Generalizable%20Backdoor%20Detection%20and%20Removal%20for%20Deep%20Reinforcement%20Learning/"/>
     <url>/2024/03/17/robotics+RL/BIRD_%20Generalizable%20Backdoor%20Detection%20and%20Removal%20for%20Deep%20Reinforcement%20Learning/</url>
     
@@ -33,7 +33,7 @@
   
   
   <entry>
-    <title>Expressive Whole-Body Control for Humanoid Robots</title>
+    <title>Learning to Modulate pre-trained Models in RL</title>
     <link href="/2024/03/17/robotics+RL/Learning%20Human-to-Humanoid%20Real-Time%20Whole-Body%20Teleoperation/"/>
     <url>/2024/03/17/robotics+RL/Learning%20Human-to-Humanoid%20Real-Time%20Whole-Body%20Teleoperation/</url>
     
@@ -60,7 +60,7 @@
   
   
   <entry>
-    <title>TAIL:Task-specific Adapters for Imitation Learning with Large Pretrained Models</title>
+    <title>Can Pre-Trained Text-to-Image Models Generate Visual Goals for Reinforcement Learning?</title>
     <link href="/2024/03/17/robotics+RL/Can%20Pre-Trained%20Text-to-Image%20Models%20Generate%20Visual%20Goals%20for%20Reinforcement%20Learning_/"/>
     <url>/2024/03/17/robotics+RL/Can%20Pre-Trained%20Text-to-Image%20Models%20Generate%20Visual%20Goals%20for%20Reinforcement%20Learning_/</url>
     
@@ -114,7 +114,7 @@
   
   
   <entry>
-    <title>Parameter and Computation Efficient Transfer Learning for Vision-Language Pre-trained Models</title>
+    <title>Learning to Modulate pre-trained Models in RL</title>
     <link href="/2024/03/11/pre_train+RL/Learning%20to%20Modulate%20pre-trained%20Models%20in%20RL/"/>
     <url>/2024/03/11/pre_train+RL/Learning%20to%20Modulate%20pre-trained%20Models%20in%20RL/</url>
     
